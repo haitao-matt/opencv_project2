@@ -140,7 +140,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=50):
             epoch_acc_classes = corrects_classes.double() / len(data_loaders[phase].dataset)
 
             epoch_acc_species = corrects_species.double() / len(data_loaders[phase].dataset)
-            epoch_acc = epoch_acc_classes + epoch_acc_species
+            epoch_acc = (epoch_acc_classes + epoch_acc_species) / 2
 
             Accuracy_list_classes[phase].append(100 * epoch_acc_classes)
             print('{} Loss: {:.4f}  Acc_classes: {:.2%}'.format(phase, epoch_loss, epoch_acc_classes))
