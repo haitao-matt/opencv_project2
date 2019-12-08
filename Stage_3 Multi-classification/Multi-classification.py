@@ -205,11 +205,10 @@ def visualize_model(model):
             labels_classes = data['classes'].to(device)
             labels_species = data['species'].to(device)
 
-            x_classes = model(inputs.to(device))
+            x_classes, x_species = model(inputs.to(device))
             x_classes = x_classes.view(-1, 2)
             _, preds_classes = torch.max(x_classes, 1)
 
-            x_species = model(inputs.to(device))
             x_species = x_species.view( -1,2)
             _, preds_species = torch.max(x_species, 1)
 
