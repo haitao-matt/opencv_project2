@@ -20,7 +20,7 @@ class Net(nn.Module):
 
         self.drop = nn.Dropout2d()
 
-        self.fc2 = nn.Linear(150, 3)
+        self.fc2 = nn.Linear(150, 2)
         self.softmax1 = nn.Softmax(dim=1)
 
         self.fc3 = nn.Linear(150, 3)
