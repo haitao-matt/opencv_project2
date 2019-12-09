@@ -116,8 +116,8 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=50):
 
                 with torch.set_grad_enabled(phase == 'train'):
                     x_classes, x_species = model(inputs)
-                    x_classes = x_classes.view(-1,3)
-                    x_species = x_species.view(-1,3)
+                    x_classes = x_classes.view(-1, 2)
+                    x_species = x_species.view(-1, 3)
 
                     _, preds_classes = torch.max(x_classes, 1)
                     _, preds_species = torch.max(x_species, 1)
@@ -209,7 +209,7 @@ def visualize_model(model):
             x_classes = x_classes.view(-1, 2)
             _, preds_classes = torch.max(x_classes, 1)
 
-            x_species = x_species.view( -1,2)
+            x_species = x_species.view( -1, 3)
             _, preds_species = torch.max(x_species, 1)
 
             print(inputs.shape)
